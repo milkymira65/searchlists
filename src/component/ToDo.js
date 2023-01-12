@@ -9,8 +9,12 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import StlyCard from "./StlyCard";
+import { useEffect, useState } from "react";
+// import { data } from "./MockDaTa";
 
 function ToDo() {
+  const [query, setQuery] = useState("");
+
   return (
     <Box w="80%" mt="3%" ml="8%">
       <Center>
@@ -27,6 +31,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Male");
+            }}
           >
             Male
           </Center>
@@ -40,6 +47,9 @@ function ToDo() {
             _hover={{
               textDecoration: "none",
               bg: "#3D6356",
+            }}
+            onClick={() => {
+              setQuery("Female");
             }}
           >
             Female
@@ -55,6 +65,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Bigender");
+            }}
           >
             Bigender
           </Center>
@@ -69,6 +82,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Non-binary");
+            }}
           >
             Non-binary
           </Center>
@@ -82,6 +98,9 @@ function ToDo() {
             _hover={{
               textDecoration: "none",
               bg: "#3D6356",
+            }}
+            onClick={() => {
+              setQuery("Agender");
             }}
           >
             Agender
@@ -98,6 +117,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Polygender");
+            }}
           >
             Polygender
           </Center>
@@ -111,6 +133,9 @@ function ToDo() {
             _hover={{
               textDecoration: "none",
               bg: "#3D6356",
+            }}
+            onClick={() => {
+              setQuery("Genderfluid");
             }}
           >
             Genderfluid
@@ -126,6 +151,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Genderqueer");
+            }}
           >
             Genderqueer
           </Center>
@@ -139,6 +167,9 @@ function ToDo() {
             _hover={{
               textDecoration: "none",
               bg: "#3D6356",
+            }}
+            onClick={() => {
+              setQuery("BraZil");
             }}
           >
             BraZil
@@ -154,6 +185,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Thailand");
+            }}
           >
             Thailand
           </Center>
@@ -167,6 +201,9 @@ function ToDo() {
             _hover={{
               textDecoration: "none",
               bg: "#3D6356",
+            }}
+            onClick={() => {
+              setQuery("Sweden");
             }}
           >
             Sweden
@@ -182,6 +219,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Japan");
+            }}
           >
             Japan
           </Center>
@@ -196,6 +236,9 @@ function ToDo() {
               textDecoration: "none",
               bg: "#3D6356",
             }}
+            onClick={() => {
+              setQuery("Netherlands");
+            }}
           >
             Netherlands
           </Center>
@@ -203,14 +246,31 @@ function ToDo() {
       </Wrap>
       <Center>
         <Flex w="50%" m="5%">
-          <Input w="80%" placeholder="Search" />
-          <Button colorScheme="teal" variant="ghost" Text="teal">
+          <Input
+            w="80%"
+            value={query}
+            placeholder="Search"
+            onChange={(e) => {
+              setQuery(e.target.value);
+
+              console.log(query);
+            }}
+          />
+
+          <Button
+            colorScheme="teal"
+            variant="ghost"
+            Text="teal"
+            onClick={() => {
+              setQuery("");
+            }}
+          >
             CLEAR
           </Button>
         </Flex>
       </Center>
       <Wrap justify="center">
-        <StlyCard />
+        <StlyCard query={query} />
       </Wrap>
     </Box>
   );

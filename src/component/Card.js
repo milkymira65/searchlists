@@ -9,8 +9,6 @@ import {
   Spacer,
   Flex,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import data from "./MockDaTa";
 
 export default function Card(property) {
   return (
@@ -28,7 +26,6 @@ export default function Card(property) {
       >
         <Box
           rounded={"lg"}
-          //   mt={-12}
           pos={"relative"}
           height={"230px"}
           _after={{
@@ -39,7 +36,7 @@ export default function Card(property) {
             pos: "absolute",
             top: 5,
             left: 0,
-            // backgroundImage: `url(${IMAGE})`,
+
             filter: "blur(15px)",
             zIndex: -1,
           }}
